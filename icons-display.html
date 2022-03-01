@@ -1,0 +1,255 @@
+
+<!--
+    This file helps the developers to preview the icons, from all SVG sprites!
+
+    To display the icons, double click 'Show icons.cmd' file, from file explorer.
+
+    (Hint: create shortcut of 'Show icons.cmd' on your desktop for easy access)
+
+    Adding new SVG sprite:
+        - add the name of the sprite in the 'sprites' array below;
+        - in the svg tag of the sprite, add 'id' equals of the name of the sptrite.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Nikolay Buhtiyarov">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABU1BMVEUAAAAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYeAAYN8AXt8AX98UbeJXl+pem+tcmushdeQCYuBCiuhfnOs/iOcBYeAhduRXlur7/P7+/v7///+AsO/V5fnO4PkPauGItfAYb+Lc6foSbOKHtfDb6fpbmev9/v6Fs/AWb+La6PrT5PkRa+KHtPA1guYEZOBln+yKtvBinesDY+A2guYDYuAKZ+EJZuFgnOsMaOGpyfTX5vqixfMIZuFjnuwNaeGvzfXe6vupyvTU5PlBiecYcOIWbuIFY+AFZOCGtPCJtvDT4/mFtPDP4flAiOfjEwmPAAAAK3RSTlMAAAdGpeP75KhJCBeQ7u+UGq+0BpZH7U6t4uj6/umnSvFRmrgd8k3qsFAJsPbsZAAAAAFiS0dEPdBtUVkAAAAHdElNRQfmAhcIBzY1LzyfAAABkElEQVQ4y6WTWVPCQBCEd1FRARXwVlREPLMkhENAAoElERQFBRUEL7xQweP/PzmrVQa5rJJ+yFeT7spmpmYRQljX1z+g55qkHxwaNmAENjaaRri2Gh0zY4yw0cJ1lNWM0biJ66IJHZqcAhIXE/8NF+G/wU6ZRv3MF9yiKHq8Pv+2KG4HgiEPlG6BJWbQLDxdO2FJkiJRQY4AYvEoQArvuMCaQ/MsIEoREE0oDLJKGSSRBWyI0wK7iWRLgPsdUDoFUnvs1X76gOEws8+wl9ICfChKKc0eHefylOZPTs+yUEZD/E+ABOOqqmYKpAhQz0khA4gHiXZEICaDSuWLS1m+vLousSoWaPOT/++i9y/4ZSWpKDeV27tk8u6+mFOgfHjUAsQnVBOJp2dSAVTL5CUNEHxam7yXDaoGg6pTWi8VzmpNg/o96tfMW/Ooe2tT/9fCDLSs3Hvjyi2gxZal/WhcWgtaGum29vZlpBvrdnEcBoTN1s7+ihPuJjZP2Nvbqw4n/rrfhrWZBVuza1vf2NwC+xP538vkW1RaWgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wMi0yM1QwODowNzo1NCswMDowMK/8b9UAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDItMjNUMDg6MDc6NTQrMDA6MDDeoddpAAAAV3pUWHRSYXcgcHJvZmlsZSB0eXBlIGlwdGMAAHic4/IMCHFWKCjKT8vMSeVSAAMjCy5jCxMjE0uTFAMTIESANMNkAyOzVCDL2NTIxMzEHMQHy4BIoEouAOoXEXTyQjWVAAAAAElFTkSuQmCC">
+    <title>Icons display</title>
+
+    <style>
+        body {
+            padding: 16px;
+            font-family: Helvetica, sans-serif;
+        }
+
+        .sprites-container {
+            display: none;
+        }
+
+        .wrapper {
+            max-width: 1260px;
+            margin: 0 auto;
+        }
+
+        form {
+            position: fixed;
+            top: 55px;
+            right: 30px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e6e6e6;
+            z-index: 10;
+        }
+
+        form p {
+            font-size: 12px;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+        }
+
+        section:not(:last-of-type) {
+            border-bottom: 1px solid #cccccc;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-gap: 40px 20px;
+            margin-top: 16px;
+            margin-bottom: 14px;
+        }
+
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 0;
+        }
+
+        .icon-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 64px;
+            margin-bottom: 8px;
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sprites-container"></div>
+
+    <div class="wrapper">
+        <h1>Icons display (<span class="icons-count"></span> icons)</h1>
+        <p>Full set of all icons from all svg sprites.</p>
+        <form>
+            <input id="icons-size-input" type="number" placeholder="Resize icons" onkeypress="return event.keyCode!=13">
+            <input id="reset-button" type="reset">
+            <p>Min size: 16px; Max size: 1260px;</p>
+        </form>
+    </div>
+
+    <template id="section">
+        <section>
+            <h2></h2>
+            <div class="icons-container"></div>
+        </section>
+    </template>
+
+    <template id="figure">
+        <figure>
+            <div class="icon-container">
+                <svg width="" height="">
+                    <use xlink:href=""></use>
+                </svg>
+            </div>
+            <figcaption></figcaption>
+        </figure>
+    </template>
+
+    <script>
+        let iconSize = 32; //px
+        let iconsCount = 0;
+        const iconsCountEl = document.querySelector(".icons-count")
+        const spritesContainer = document.querySelector(".sprites-container");
+        const wrapper = document.querySelector(".wrapper");
+
+        //Array with all SVG sprites
+        const sprites = [];
+
+        // Sends requests to the SVG files and adds them to the DOM
+        function addSvgSpritesToDOM() {
+            sprites.forEach(sprite => {
+                const req = new XMLHttpRequest();
+                req.open("GET", `./${sprite}.svg`, true);
+                req.send();
+                req.onload = function(e) {
+                    const div = document.createElement("div");
+                    div.classList.add(sprite);
+                    div.innerHTML = req.responseText;
+                    spritesContainer.appendChild(div);
+                }
+            })
+        }
+
+        // Observes when all SVG files are added to the DOM, then initiates the rendering of the icons
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(record => {
+                if (spritesContainer.childElementCount === sprites.length) {
+                    renderIcons();
+                }
+            })
+        })
+
+        observer.observe(spritesContainer, {
+            childList: true
+        })
+
+        // Renders the icons
+        function renderIcons() {
+            sprites.forEach(sprite => {
+                const svgSprite = document.querySelector(`.${sprite}`);
+                const symbols = svgSprite.querySelectorAll("symbol");
+
+                const section = document.querySelector("#section").content.cloneNode(true);
+                const heading = section.querySelector("h2");
+                const iconsContainer = section.querySelector(".icons-container");
+                const spriteText = sprite.charAt(0).toUpperCase() + sprite.slice(1);
+                heading.innerHTML = `${spriteText}.svg sprite (${symbols.length} icons)`;
+
+
+                symbols.forEach(symbol => {
+                    const figure = document.getElementById("figure").content.cloneNode(true);
+                    const iconContainer = figure.querySelector(".icon-container");
+                    const svg = figure.querySelector("svg");
+                    const use = svg.querySelector("use");
+                    const figCaption = figure.querySelector("figcaption");
+
+                    figCaption.innerHTML= symbol.id;
+
+                    svg.setAttribute("width", iconSize);
+                    svg.setAttribute("height", iconSize);
+                    use.setAttribute("xlink:href", `/${sprite}.svg#${symbol.id}`);
+
+                    iconsContainer.appendChild(figure);
+                });
+
+                iconsCount += symbols.length;
+                wrapper.appendChild(section);
+            })
+            iconsCountEl.innerHTML = iconsCount;
+            changeIconsSize();
+        }
+
+        // Changes the size of the icons from input field
+        function changeIconsSize() {
+            const iconsSizeInput = document.querySelector("#icons-size-input");
+            const resetButton = document.querySelector("#reset-button")
+            const iconsContainers = document.querySelectorAll(".icons-container");
+            const icons = document.querySelectorAll(".icon-container svg");
+
+            // Resizes to default sizes when Reset button is clicked
+            resetButton.addEventListener('click', function() {
+                iconSize = 32;
+                resize(iconSize);
+            })
+            // Resizes icons and icons' container
+            iconsSizeInput.addEventListener('input', function() {
+                iconSize = this.value.trim();
+                resize(iconSize);
+            })
+
+            function resize(iconSize) {
+                // Dynamically resizes icons' container. Min size: 140px; Max size 1260px
+                iconsContainers.forEach(iconsContainer => {
+                    if (iconSize > 140 && iconSize <= 1260) {
+                        iconsContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(140px, ${iconSize}px))`;
+                    } else if (iconSize > 1260) {
+                        iconsContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(140px, 1260px))";
+                    } else {
+                        iconsContainer.style.gridTemplateColumns = "repeat(auto-fill, minmax(140px, 1fr))";
+                    }
+                })
+
+                // Dynamically resizes icons' size. Default size 32px; Min size: 16px; Max size 1260px
+                icons.forEach(icon => {
+                    if (iconSize >= 16 && iconSize <= 1260) {
+                        icon.setAttribute("width", `${iconSize}`);
+                        icon.setAttribute("height", `${iconSize}`);
+                    } else if (iconSize > 1260) {
+                        icon.setAttribute("width", "1260");
+                        icon.setAttribute("height", "1260");
+                    } else {
+                        icon.setAttribute("width", "32");
+                        icon.setAttribute("height", "32");
+                    }
+                })
+            }
+        }
+        window.addEventListener('DOMContentLoaded', addSvgSpritesToDOM);
+    </script>
+</body>
+</html>
