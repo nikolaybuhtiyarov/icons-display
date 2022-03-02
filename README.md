@@ -8,9 +8,9 @@ And that’s not all! The icons are beautifully grouped by sprites, you get info
 Also you can dynamically resize the icons, if you need a closer look!  
 
 # How to use:
-(1) download this repo to your project's SVG directory;    
-(2) in icons-display.html file, add all sprite's names to the "sprites" array;  
-(3) if you have NodeJS installed, just double click "Show icons.cmd" file, and the preview will load in your default browser (Linux users must change "cmd" extention to "sh"). Otherwise, use any simple web server of your choice, to serve icons-display.html file.   
+(1) Download this repo to your project's SVG directory;    
+(2) In icons-display.html file, add all sprite's names to the "sprites" array;  
+(3) If you have NodeJS installed, just double click "Show icons.cmd" file, and the preview will load in your default browser (Linux users must change "cmd" extention to "sh"). Otherwise, install NodeJS (+ NPM, globally), or use any simple web server of your choice, to serve icons-display.html file.   
 
 (Hint: create shortcut of 'Show icons.cmd' on your desktop for easy access)  
 
