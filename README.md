@@ -15,6 +15,6 @@ Also you can dynamically resize the icons, if you need a closer look!
 (Hint: create shortcut of 'Show icons.cmd' on your desktop for easy access)  
 
 ## How it works:
-The short explanations is: JS sends request to each SVG sprite and adds the code to the DOM. Then iterates all the symbol tags, collects their IDs and builds the UI using two HTML templates.
+The short explanations is: JS sends request to each SVG sprite and adds the code to the DOM. Then iterates all symbol tags, collects their IDs and builds the UI using HTML templates.
 
 ![icons display](https://user-images.githubusercontent.com/26719853/156133184-243ec4ba-942a-4d19-ba45-cc0b215d85f2.png)
