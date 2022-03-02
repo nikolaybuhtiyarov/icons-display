@@ -8,7 +8,6 @@
 
     Adding new SVG sprite:
         - add the name of the sprite in the 'sprites' array below;
-        - in the svg tag of the sprite, add 'id' equals of the name of the sptrite.
 -->
 
 <!DOCTYPE html>
@@ -138,7 +137,20 @@
         const wrapper = document.querySelector(".wrapper");
 
         //Array with all SVG sprites
-        const sprites = [];
+        const sprites = [
+            'button',
+            'car-options',
+            'common',
+            'flight',
+            'hotel',
+            'input',
+            'loader',
+            'policy-icon',
+            'rail-seat-preferences',
+            'room',
+            'transport',
+            'workflow'
+        ];
 
         // Sends requests to the SVG files and adds them to the DOM
         function addSvgSpritesToDOM() {
